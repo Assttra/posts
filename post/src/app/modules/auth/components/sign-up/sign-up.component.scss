@@ -9,8 +9,11 @@
 .title {
   color: darkgreen;
   padding: 40px 0 0 30px;
+  text-align: center;
 }
 
-
+::ng-deep mat-form-field {
+  padding: 0 24px;
+}
 
 
