@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  activeComponent :boolean  = false;
+
+  changeComponent() :void {
+    this.activeComponent = !this.activeComponent;
+  }
 }

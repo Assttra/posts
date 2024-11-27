@@ -1,21 +1,39 @@
-<div class="sign-up">
-  <div class="title">
-    <h1>Get Started Today!</h1>
-  </div>
-
-  <form class="d-flex flex-column gap-16">
-    <mat-form-field [appearance]="'outline'">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Write your email...">
-    </mat-form-field>
-    <mat-form-field [appearance]="'outline'">
-      <mat-label>Password</mat-label>
-      <input matInput placeholder="Write your password...">
-    </mat-form-field>
-  </form>
-
-  <button mat-raised-button>Login</button>
+<div class="title">
+  <h1>Create Your Account</h1>
 </div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-16">
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Write your name...">
+  </mat-form-field>
+  <span *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="error">
+      <span *ngIf="form.get('name')?.errors?.['required']">Имя пользователя не должно быть пустым</span>
+  </span>
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Write your email...">
+  </mat-form-field>
+  <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error">
+      <span *ngIf="form.get('email')?.errors?.['required']">Email не должен быть пустым</span>
+      <span *ngIf="form.get('email')?.errors?.['email']">Введите корректный email адрес</span>
+    </span>
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Password</mat-label>
+    <input formControlName="password" matInput placeholder="Write your password...">
+  </mat-form-field>
+  <span *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error">
+      <span *ngIf="form.get('password')?.errors?.['required']">Пароль не должен быть пустым</span>
+      <span *ngIf="form.get('password')?.errors?.['minlength'] && form.get('password')?.errors?.['minlength']['requiredLength']">
+        Пароль должен быть больше {{form.get('password')?.errors?.['minlength']['requiredLength']}} символов
+      </span>
+    </span>
+  <div class="d-flex justify-center align-center flex-column">
+    <button [disabled]="form.invalid" type="submit" class="button" mat-raised-button>Register</button>
+  </div>
+</form>
+
+
 
 
 

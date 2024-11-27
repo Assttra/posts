@@ -1,1 +1,9 @@
-<app-sign-up></app-sign-up>
+<div class="sign-in">
+  <app-sign-in *ngIf="!activeComponent">
+  </app-sign-in>
+  <app-sign-up *ngIf="activeComponent"></app-sign-up>
+  <p class="text-state" (click)="changeComponent()">{{activeComponent ? 'Sign-in' : 'Sign-up'}}</p>
+</div>
+
+
+
