@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'sign-in'
+    redirectTo: 'dashboard'
   },
   {
     path: 'sign-in',
@@ -16,7 +16,6 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
-    canActivate: [authGuard]
   }
 ]
 @NgModule({
