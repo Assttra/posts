@@ -1,39 +1,23 @@
-<header class="header">
-  <div class="container">
-    <div class="my-portal">
-      <h1>My Portal</h1>
-    </div>
-    <div class="block">
-    <div class="user">
-      <p>Welcome, {{user?.name}} ({{user?.email}})</p>
-    </div>
-    <div class="logout">
-       <button (click)="logout()" class="button">Logout</button>
-    </div>
-    </div>
-  </div>
-</header>
-
 <div class="container-cards">
-  <div class="card">
+  <div routerLink='/create-post' class="card">
     <div class="title-card">
       <p><b>Create post</b></p>
       <p>Click to create new post</p>
     </div>
   </div>
-  <div class="card">
+  <div routerLink='/posts' class="card">
     <div class="title-card">
       <p><b>Posts</b></p>
       <p>Click to view existing posts</p>
     </div>
   </div>
-  <div class="card">
+  <div *ngIf="(user$ | async)?.role?.status === 'Admin'" routerLink='/user-list' class="card">
     <div class="title-card">
       <p><b>User-list</b></p>
       <p>Click for checking all users</p>
     </div>
   </div>
-  <div class="card">
+  <div routerLink='/settings' class="card">
     <div class="title-card">
       <p><b>Settings</b></p>
       <p>Click for checking your profile data</p>

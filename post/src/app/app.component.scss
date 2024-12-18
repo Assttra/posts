@@ -1,2 +1,58 @@
+.header {
+  height: 60px;
+  width: 100%;
+  background-color: #211f1f;
+  opacity: 0.9;
+  display: flex;
+  color: white;
+
+  .container {
+    display: flex;
+  }
+
+  .my-portal {
+    padding: 12px 0 0 20px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .block {
+    display: flex;
+    margin: 15px 0 0 0;
+    right: 20px;
+    position: absolute;
+  }
+
+  .user {
+    font-size: 16px;
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+
+  .logout {
+    margin: 0 0  0 15px;
+  }
+
+  .button {
+    width: 100px;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: rgba(76, 215, 215, 0.99);
+  }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    width: calc(100% + 40px);
+    right: 20px;
+  }
+}
+
 
 

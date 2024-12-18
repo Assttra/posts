@@ -1,0 +1,28 @@
+<div class="container">
+<table>
+  <thead>
+    <tr>
+       <th>Id</th>
+       <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="getUserById(user.id)" *ngFor="let user of users$ | async">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div *ngIf="getUser" class="card">
+  <h1 class="title">User Details</h1>
+  <div class="data-block">
+    <p>Name: {{getUser.name}}</p>
+    <p>Email: {{getUser.email}}</p>
+    <p>Address: {{getUser.address}}</p>
+    <p>Phone: {{getUser.phone}}</p>
+  </div>
+</div>
+
+

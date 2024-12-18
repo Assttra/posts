@@ -1,0 +1,72 @@
+.container {
+  background-color: white;
+  height: 500px;
+  width: 500px;
+  margin: 40px auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+  table {
+    width: 500px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  thead tr {
+    background-color: aqua;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: white;
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid aqua;
+  }
+
+  tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+}
+
+.card {
+  background-color: white;
+  height: 300px;
+  width: 400px;
+  float: right;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  margin: -150px 240px 0 0;
+
+  .title {
+    text-align: center;
+    padding-top: 60px;
+    font-size: 30px;
+  }
+
+  .data-block {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 600px auto;
+    float: none;
+  }
+
+  .title {
+    padding-top: 60px;
+  }
+}

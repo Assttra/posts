@@ -1,0 +1,28 @@
+<div class="post">
+  <div class="block-title">
+    <div class="title">
+      <p class="title-text">{{post?.title}}</p>
+    </div>
+    <div class="remove-post">
+      <mat-icon class="remove-icon">delete</mat-icon>
+      <div class="date">
+        <p>{{post?.createdAt | date:'MM/dd/yy'}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <p>{{post?.content}}</p>
+  </div>
+  <div class="block-category">
+    <div class="category">
+      <p>{{post?.category}}</p>
+    </div>
+    <div class="create">
+      <p>{{post?.anonymousUser ? 'anonymous' : post?.author?.name}}</p>
+      <div class="reaction">
+        <mat-icon class="thumb-up">thumb_up</mat-icon>
+        <mat-icon class="thumb-down">thumb_down</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

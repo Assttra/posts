@@ -2,49 +2,40 @@ import {Injectable} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { RegisterData } from "../interfaces/auth.interface";
 import { LoginData } from "../interfaces/auth.interface";
-import {Observable, tap} from "rxjs";
+import { Observable, switchMap, tap } from "rxjs";
 import {env} from "../../environments/env";
+import {UserTokenStorage} from "./class/user-token-storage";
+import {User} from "../shared/interfaces/user";
+import {UserService} from "../shared/services/api/user-service/user.service";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService  {
+export class AuthService extends UserTokenStorage {
 
-  private token: string | null = null;
+  constructor(private http: HttpClient, private userService: UserService) {
+    super()
+  }
 
-  constructor(private http: HttpClient) { }
 
-
-  register(data: RegisterData): Observable<{ token: string }> {
+  register(data: RegisterData): Observable<User> {
     return this.http.post<{ token: string }>(`${env.baseUrl}/api/sign-up`, data)
       .pipe(
-        tap (
-          ({token}) => {
-            localStorage.setItem('auth-token', token);
-            this.setToken(token);
-          }
-        )
+        switchMap(({ token }) => {
+          this.setToken(token);
+          return this.userService.getUser();
+        }),
       )
   };
-  login(data: LoginData): Observable<{ token: string }> {
+  login(data: LoginData): Observable<User> {
     return this.http.post<{ token: string }>(`${env.baseUrl}/api/sign-in`, data)
       .pipe(
-        tap (
-          ({token}) => {
-            localStorage.setItem('auth-token', token);
-            this.setToken(token);
-          }
-        )
+        switchMap(({ token }) => {
+          this.setToken(token);
+          return this.userService.getUser();
+        }),
       )
-  }
-
-  setToken(token: string) {
-    this.token = token;
-  }
-
-  getToken(): string | null {
-    return this.token;
   }
 
   isAuthenticated(): boolean {

@@ -1,0 +1,34 @@
+
+<div class="container">
+<div class="title">
+  <h1>Settings profile</h1>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-16">
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Write your name...">
+    <mat-error *ngIf="form.get('name')?.hasError('required')">Поле не должно быть пустым </mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Email</mat-label>
+    <input  formControlName="email" matInput placeholder="Write your email...">
+    <mat-error *ngIf="form.get('email')?.hasError('email')">Введите корректный email</mat-error>
+    <mat-error *ngIf="form.get('email')?.hasError('required')">Email не должен быть пустым</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Phone</mat-label>
+    <input formControlName="phone" matInput placeholder="Write your phone...">
+    <mat-error *ngIf="form.get('phone')?.hasError('required')">Поле не должно быть пустым</mat-error>
+    <mat-error *ngIf="form.get('phone')?.hasError('pattern')">Номер телефона должен быть корректным: +380</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="'outline'">
+    <mat-label>Address</mat-label>
+    <input formControlName="address" matInput placeholder="Write your address...">
+    <mat-error *ngIf="form.get('address')?.hasError('required')">Поле не должно быть пустым</mat-error>
+  </mat-form-field>
+  <div class="d-flex justify-center align-center flex-column">
+    <button [disabled]="form.invalid"  mat-button>Edit</button>
+  </div>
+</form>
+</div>

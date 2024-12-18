@@ -1,0 +1,28 @@
+<div class="container">
+<h1 class="title">Create a New Post</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field [appearance]="'outline'">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput placeholder="">
+      <mat-error *ngIf="form.get('title')?.hasError('required')">Поле не должно быть пустым</mat-error>
+    </mat-form-field>
+    <mat-form-field [appearance]="'outline'">
+    <mat-label>Content</mat-label>
+    <textarea formControlName="content" matInput placeholder=""></textarea>
+      <mat-error *ngIf="form.get('content')?.hasError('required')">Поле не должно быть пустым</mat-error>
+      <mat-error *ngIf="form.get('content')?.hasError('minlength')">Поле должно содержать больше 8 символов</mat-error>
+    </mat-form-field>
+    <mat-form-field [appearance]="'outline'">
+      <mat-label>Select an category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('category')?.hasError('required')">Выберите категорию</mat-error>
+    </mat-form-field>
+    <mat-checkbox formControlName="anonymousUser">Post Anonymously</mat-checkbox>
+    <div class="d-flex justify-center align-center flex-column">
+      <button [disabled]="form.invalid" mat-button>Create Post</button>
+    </div>
+</form>
+</div>
