@@ -22,7 +22,7 @@
     </mat-form-field>
     <mat-checkbox formControlName="anonymousUser">Post Anonymously</mat-checkbox>
     <div class="d-flex justify-center align-center flex-column">
-      <button [disabled]="form.invalid" mat-button>Create Post</button>
+      <button  [disabled]="form.invalid" mat-button>{{ buttonText }}</button>
     </div>
 </form>
 </div>

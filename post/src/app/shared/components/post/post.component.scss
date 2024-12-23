@@ -13,23 +13,46 @@
   .title-text {
     font-size: 24px;
     color: aqua;
+  }
+
+  .clickable {
     cursor: pointer;
+  }
+
+  .clickable:hover {
+    color: greenyellow;
   }
 
   .remove-post {
 
 
     p {
-      margin-left: -40px;
+      margin: 10px 0 0 0;
       color: gray;
     }
 
     .remove-icon {
       cursor: pointer;
+      color: #9d0606;
+      margin-left: 40px;
+
+       &:hover {
+         color: red;
+       }
     }
 
-    .remove-icon:hover {
-      color: aqua;
+    .edit-icon {
+      color: #605f5f;
+
+      &:hover {
+        color: #2D2D2DFF;
+        cursor: pointer;
+      }
+    }
+
+    .icons {
+      display: flex;
+      gap: 10px;
     }
   }
 
@@ -38,8 +61,10 @@
     margin: 30px auto;
     border-top: gray 1px solid;
     border-bottom: gray 1px solid;
-    p{
+
+    p {
       padding:  10px 0;
+      max-width: 500px;
       margin: 0;
     }
   }
@@ -67,14 +92,22 @@
         margin-left: 15px;
       }
 
-      .thumb-down:hover {
+      .thumb-down {
         color: red;
         cursor: pointer;
+
+        &:hover {
+          color: #d90c0c;
+        }
       }
 
-      .thumb-up:hover {
+      .thumb-up {
         color: greenyellow;
         cursor: pointer;
+
+          &:hover {
+            color: #82cc0f;
+          }
       }
     }
   }
@@ -86,6 +119,10 @@
 
     .remove-post {
       padding: 0;
+    }
+
+    .remove-icon {
+      margin: 0;
     }
   }
 }

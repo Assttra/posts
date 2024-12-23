@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostComponent } from './components/post/post.component';
 import {MatIconModule} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -14,7 +15,8 @@ import {MatIconModule} from "@angular/material/icon";
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ]
 })
 export class SharedModule { }

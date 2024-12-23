@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {env} from "../../../../../environments/env";
-import {BehaviorSubject, Observable, pipe, share, shareReplay, tap} from "rxjs";
+import {BehaviorSubject, Observable, tap} from "rxjs";
 import {User} from "../../../interfaces/user";
 
 @Injectable({
@@ -9,7 +9,8 @@ import {User} from "../../../interfaces/user";
 })
 export class UserService {
 
-   user$ = new BehaviorSubject<User | null>(null)
+
+  user$ = new BehaviorSubject<User | null>(null)
   constructor(private httpClient: HttpClient) { }
 
   getUser() :Observable<User> {
@@ -39,4 +40,15 @@ export class UserService {
   getUserById(id: number): Observable<User> {
     return this.httpClient.get<User>(`${env.baseUrl}/api/user/${id}`)
   }
+
+  isAdmin() {
+    return this.user$.getValue()?.role.status === 'Admin';
+  }
+
+  isUser(postUserId: number) {
+    return this.user$.getValue()?.id === postUserId;
+
+  }
+
+
 }

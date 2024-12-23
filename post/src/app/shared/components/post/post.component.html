@@ -1,10 +1,15 @@
 <div class="post">
   <div class="block-title">
     <div class="title">
-      <p class="title-text">{{post?.title}}</p>
+      <p [routerLink]='enableLink ? titlePath : null' [class.clickable]="enableLink"  class="title-text">{{post?.title}}</p>
     </div>
     <div class="remove-post">
-      <mat-icon class="remove-icon">delete</mat-icon>
+      <div class="icons">
+      <mat-icon *ngIf="showDeleteIcon" (click)="deletePost(post?.id)" class="remove-icon">delete</mat-icon>
+      <ng-container  *ngIf="showEditIcon">
+        <mat-icon  (click)="navigateToEditPost(post?.id)" *ngIf="hiddenIcon" class="edit-icon">edit</mat-icon>
+      </ng-container>
+      </div>
       <div class="date">
         <p>{{post?.createdAt | date:'MM/dd/yy'}}</p>
       </div>

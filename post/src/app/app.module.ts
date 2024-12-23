@@ -17,12 +17,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import { PostsComponent } from './modules/posts/posts.component';
 import {MatIconModule} from "@angular/material/icon";
+import { PostPageComponent } from './modules/post-page/post-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
     PostsComponent,
+    PostPageComponent,
   ],
     imports: [
         BrowserModule,
