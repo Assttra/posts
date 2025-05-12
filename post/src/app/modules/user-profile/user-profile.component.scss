@@ -1,0 +1,57 @@
+.user-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  gap: 15px;
+  padding: 0 60px 0 60px;
+
+
+  .user-profile {
+    background-color: white;
+    width: 300px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .user-name {
+      font-size: 30px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .user-role {
+      text-align: center;
+      font-size: 20px;
+      color: gray;
+    }
+
+    .about-user {
+      border-top: 1px solid #e3dede;
+      padding: 14px;
+
+      .user-contacts {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .user-profile {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+ .user-container {
+   flex-direction: column;
+ }
+}

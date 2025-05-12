@@ -1,0 +1,78 @@
+.avatar-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease;
+  gap: 10px;
+
+
+}
+
+.prev {
+  left: -10px;
+}
+
+.next {
+  right: -10px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: aqua;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+}
+
+.prev mat-icon, .next mat-icon {
+  font-size: 20px;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.avatar:hover img {
+  border-color: aqua;
+}
+
+

@@ -11,4 +11,16 @@
     padding: 20px 0 0 0;
     text-align: center;
   }
+
+  .noPosts {
+    margin: 0;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+  }
+}
+
+.mat-mdc-form-field {
+  display: block;
 }

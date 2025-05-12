@@ -24,10 +24,18 @@
     </div>
     <div class="create">
       <p>{{post?.anonymousUser ? 'anonymous' : post?.author?.name}}</p>
-      <div class="reaction">
-        <mat-icon class="thumb-up">thumb_up</mat-icon>
-        <mat-icon class="thumb-down">thumb_down</mat-icon>
-      </div>
+      <ng-container *ngIf="!showReaction; else showAmountReactions">
+        <div class="reaction">
+          <mat-icon (click)="onReact(post, reactionEnum.Like)" class="thumb-up">thumb_up</mat-icon>
+          <mat-icon (click)="onReact(post, reactionEnum.Dislike)" class="thumb-down">thumb_down</mat-icon>
+        </div>
+      </ng-container>
+      <ng-template #showAmountReactions>
+        <div class="reaction">
+          <span>likes: {{ getLikesCount() }}</span>
+          <span class="dislikes">dislikes: {{ getDislikesCount() }}</span>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

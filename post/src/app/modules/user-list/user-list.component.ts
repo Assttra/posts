@@ -24,6 +24,26 @@ export class UserListComponent {
     });
   }
 
+  formatCustomDate(dateInput: Date): string {
+    if(!dateInput) return '';
+    const date = new Date(dateInput);
+
+    const day = date.getDay();
+    const year = date.getFullYear();
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const weekdays = [
+      'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+      'Thursday', 'Friday', 'Saturday'
+    ];
+
+    const month = months[date.getMonth()]
+    const weekday = weekdays[date.getDay()]
+    return `${day} ${month}, ${weekday}, ${year}`
+  }
 
 
 }

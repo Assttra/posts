@@ -1,5 +1,6 @@
 import {Category} from "../enums/category";
 import {User} from "./user";
+import {Reaction} from "./reaction";
 
 export interface Post {
   id: number
@@ -9,5 +10,5 @@ export interface Post {
   anonymousUser: boolean;
   createdAt: Date;
   author: User;
-  reactions: any[];
+  reactions: Reaction[];
 }

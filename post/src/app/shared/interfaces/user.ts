@@ -4,6 +4,7 @@ export interface User {
   name: string;
   address: string;
   phone: number;
+  createdAt: Date;
   role: {
     id: number;
     status: string;

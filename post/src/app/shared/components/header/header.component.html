@@ -1,0 +1,16 @@
+<header *ngIf="user$ | async" class="header">
+  <div class="my-portal">
+    <h1 routerLink="/dashboard">My Portal</h1>
+  </div>
+  <div class="timer">
+    <app-timer></app-timer>
+  </div>
+  <div class="block">
+    <div class="user" *ngIf="(user$ | async) as user">
+      <p>Welcome, <span [routerLink]="'/user-profile/' + user.id" class="user-profile">{{user?.name}}</span> ({{user?.email}})</p>
+    </div>
+    <div class="logout">
+      <button (click)="logout()" class="button">Logout</button>
+    </div>
+  </div>
+</header>

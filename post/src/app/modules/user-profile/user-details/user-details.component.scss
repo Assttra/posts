@@ -1,0 +1,55 @@
+:host {
+
+  .user-details {
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+
+
+    .title-about-me {
+      display: flex;
+      justify-content: space-between;
+
+
+      .edit-details {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .mat-mdc-fab.mat-accent, .mat-mdc-mini-fab.mat-accent{
+      color: black;
+      background-color: aqua;
+    }
+
+    .mdc-fab--extended {
+      height: 30px;
+    }
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      height: 200px;
+    }
+
+    ::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+      height: 170px !important;
+    }
+
+
+    .title {
+      font-weight: 500;
+      font-size: 28px;
+    }
+
+    .mat-mdc-form-field {
+      display: block;
+    }
+
+    .word-break {
+      word-break: break-word;
+    }
+  }
+}
+
+
+

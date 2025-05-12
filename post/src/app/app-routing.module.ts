@@ -47,7 +47,12 @@ const routes: Routes = [
     path: 'post-page/:id',
     loadChildren: () => import('./modules/post-page/post-page.module').then((m) => m.PostPageModule),
     canActivate: [authGuard]
-  }
+  },
+  {
+    path: 'user-profile/:id',
+    loadChildren: () => import('./modules/user-profile/user-profile.module').then((m) => m.UserProfileModule),
+    canActivate: [authGuard],
+  },
 ]
 @NgModule({
   declarations: [],

@@ -1,0 +1,22 @@
+<div class="user-container">
+  <div class="user-profile">
+     <div>
+       <input type="file" #fileInput (change)="uploadFile($event)" hidden/>
+       <img [src]="url ? url : '/assets/user-profile.jpg'"  (click)="openDialog(fileInput)" alt="Profile Picture" class="profile-image">
+     </div>
+    <p class="user-name">{{user?.name}}</p>
+    <p class="user-role">{{user?.email}}</p>
+    <div class="about-user">
+      <h1>Languages</h1>
+      <p class="user-languages">English, Russian, Ukrainian</p>
+    </div>
+
+    <div class="about-user">
+      <h1>Details</h1>
+      <p><span class="user-contacts">address:</span> {{user?.address ? user?.address : '-'}}</p>
+      <p><span class="user-contacts">createdAt:</span> {{user?.createdAt ? user?.createdAt : '-'}}</p>
+      <p><span class="user-contacts">phone:</span> {{user?.phone ? user?.phone : '-'}}</p>
+    </div>
+  </div>
+  <app-user-details></app-user-details>
+</div>

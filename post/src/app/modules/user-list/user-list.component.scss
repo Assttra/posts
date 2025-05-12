@@ -44,9 +44,9 @@
   background-color: white;
   height: 300px;
   width: 400px;
-  float: right;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  margin: -150px 240px 0 0;
+  margin: 20px auto;
+
 
   .title {
     text-align: center;
@@ -62,8 +62,8 @@
 
 @media (max-width: 768px) {
   .card {
-    margin: 600px auto;
     float: none;
+    max-width: 400px;
   }
 
   .title {
